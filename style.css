@@ -1,0 +1,42 @@
+
+
+    body {
+        /* more on this crazy alphanumerical value in a minute! */
+        /* here is some additional info */
+        font-family: helvetica, Arial, Helvetica, sans-serif;
+        text-align:center;
+    }
+
+
+
+header .header-div {
+    display:flex;
+    justify-content: space-between;
+    margin:60px;
+    color:teal
+
+}
+header .high-score-link {
+    width:50%
+}
+
+button {
+    color:white;
+    background-color:teal;
+}
+
+main {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height: 800px;
+}
+
+article {
+    border:5px solid teal;
+    border-radius:30px;
+    height:80%;
+    width:80%;
+    justify-content:center;
+    align-items:center;
+}
