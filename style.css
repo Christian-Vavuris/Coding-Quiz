@@ -53,20 +53,15 @@ article {
     display:none;
 }
 
-div.question-text {
-    width:100%
-}
-
 div.question-block {
-    height:80%;
-    width:100%;
+    height:80%; 
+    border:none;
     flex-wrap:wrap;
     justify-content:center;
     align-items:center;
-    display:flex
-}
-
-.question-text {
+    display:flex;
     font-size:36px;
     margin:30px;
 }
+
+
