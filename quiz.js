@@ -1,25 +1,26 @@
-var buttonEl = document.querySelector("#startButton")
+// to do - 
+// style the CSS questions
+// 
+
+var startButtonEl = document.getElementById("start-button")
 
 //Need to add a timer
 //Need to add Quiz Questions
 
 
 
-// This function makes things go away
-var makeItGoAway = function (element) {
-    console.log("makeItGoAway is running")
-    document.querySelector(element).classList.add("hide")
+// This function toggles the hide class onto the Element selected. 
+var toggleHide = function (element) {
+    console.log("toggleHide is running")
+    document.querySelector(element).classList.toggle("hide")
 }
 // This is testing out the makeItGoAway
 // makeItGoAway("h1.quiz-title");
 
-var toggleTheHideFunction = function (selector, className) {
-    console.log("toggling classes");
-}
 
 
 
-// This function starts the clock at 60 and counts down one each time it is run.  It also only runs once a minute.
+// This function starts the clock at 60 and counts down one each time it is run.  It also only runs once a minute. It isn't wokring yet.
 
 var countDown = function () {
     var clock = 60;
@@ -46,6 +47,10 @@ console.log(countDown());
 document.getElementById("timer").innerHTML = "Time Remaining: " + countDown();
 
 
+// This calls the toggleHide function when the startButtonEl is clicked.
+startButtonEl.addEventListener("click", function() {
+    toggleHide("h3"), false
+});
 
 
 // buttonEl.addEventListener("submit", startTimer);

@@ -24,7 +24,8 @@ button {
     color:white;
     background-color:teal;
     height:60px;
-    width:300px;
+    width:80%;
+    margin:10px;
     border-radius: 5px;
 }
 
@@ -50,4 +51,22 @@ article {
 
 .hide {
     display:none;
+}
+
+div.question-text {
+    width:100%
+}
+
+div.question-block {
+    height:80%;
+    width:100%;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    display:flex
+}
+
+.question-text {
+    font-size:36px;
+    margin:30px;
 }
