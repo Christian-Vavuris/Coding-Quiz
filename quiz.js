@@ -1,7 +1,5 @@
 // to do - 
-// Populate the quiz questions
-// Get the timer working
-// Add Local Storage and populate the high score page 
+// Add Local Storage and populate the high score page :How tho??:
 
 var startButtonEl = document.getElementById("start-button")
 var startPageEl = document.getElementById("question-block")
@@ -34,10 +32,12 @@ function timerCounter() {
     setInterval(function(){
         if (i == 0)  clearInterval(this);
         else console.log( (i--) );
-        document.getElementById("timer").innerHTML = ("Time Remaining: " + i); 
+        document.getElementById("timer").innerHTML = ("Time Remaining: " + i);
+        return i; 
     }, 1000);
-    console.log("this is " + i)
 }
+
+// How do I stop this and pull out the i once they get to the end screen?
 
 
 // This calls the toggleHide function when the startButtonEl is clicked.
@@ -58,6 +58,11 @@ var displayEndPage = function () {
 var goToHighscores = function () {
     console.log("go to high scores is running");
     window.location = "HighScores.HTML"
+}
+
+var addToMemory = function(){
+    document.getElementById("submit-score");
+    localStorage.setItem("High Score Name", input.val());
 }
 
 
