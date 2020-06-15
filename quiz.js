@@ -9,8 +9,10 @@ var buttonOneEl = document.getElementById("button-1")
 var buttonTwoEl = document.getElementById("button-2")
 var buttonThreeEl = document.getElementById("button-3")
 var buttonFourEl = document.getElementById("button-4")
-var inputNameEl = document.getElementById("submit-score")
+var addHighscoreEl = document.getElementById("add-highscore")
+var TimerEl = document.getElementById("timer")
 
+// this measures the number of correct clicks
 function clickHandler() {
     clickHandler.counter++;
     return clickHandler.counter;
@@ -24,26 +26,18 @@ var toggleHide = function (element) {
     document.getElementById(element).classList.toggle("hide")
 }
 
-// This function starts the clock at 60 and counts down one each time it is run.  It also only runs once a minute. It isn't wokring yet.
+// Calling this function starts the timer
 
-var countDown = function () {
-    var clock = 60;
-    clock = clock - 1;
-    setInterval(countDown, 1000);
-    return clock;
-};
-
-//This function runs CountDown as long as the for loop is running
-
-var activeTimer = function () {
-    for (i = 0; i < 60; i++) {
-    countDown()
-    }
+function timerCounter() {
+    var i = 60;
+    // This block will be executed 60 times.
+    setInterval(function(){
+        if (i == 0)  clearInterval(this);
+        else console.log( (i--) );
+        document.getElementById("timer").innerHTML = ("Time Remaining: " + i); 
+    }, 1000);
+    console.log("this is " + i)
 }
-
-console.log(countDown());
-
-document.getElementById("timer").innerHTML = "Time Remaining: " + countDown();
 
 
 // This calls the toggleHide function when the startButtonEl is clicked.
@@ -60,18 +54,12 @@ var displayEndPage = function () {
     toggleHide("question-block"), false
     toggleHide("end-page"), false
 }
-   
 
-// This sets up the first question. 
+var goToHighscores = function () {
+    console.log("go to high scores is running");
+    window.location = "HighScores.HTML"
+}
 
-startButtonEl.addEventListener("click", function () {
-    console.log(clickHandler());
-    document.getElementById("question-text").innerHTML = questions[0];
-    document.getElementById("button-1").innerHTML = choices[0];
-    document.getElementById("button-2").innerHTML = choices[1];
-    document.getElementById("button-3").innerHTML = choices[2];
-    document.getElementById("button-4").innerHTML = choices[3];
-});
 
 // This advances the quiz whent the user clicks the correct answer.  It also 
 
@@ -116,13 +104,19 @@ var setQuestion = function () {
 };
 
 
-// This function defines the question that gets passed into the HTML 
+// These are the Event Listeners
 
+// This sets up the first question. 
 
-
-// This increases the counter each time the correct answer is selected 
-
-
+startButtonEl.addEventListener("click", function () {
+    console.log(clickHandler());
+    document.getElementById("question-text").innerHTML = questions[0];
+    document.getElementById("button-1").innerHTML = choices[0];
+    document.getElementById("button-2").innerHTML = choices[1];
+    document.getElementById("button-3").innerHTML = choices[2];
+    document.getElementById("button-4").innerHTML = choices[3];
+    timerCounter();
+});
 
 buttonOneEl.addEventListener("click", function() {
     alert("Incorrect, please try again.")
@@ -139,6 +133,6 @@ buttonFourEl.addEventListener("click", function() {
     alert("Incorrect, please try again")
 })
 
-
-
-// buttonEl.addEventListener("submit", startTimer);
+addHighscoreEl.addEventListener("click", function() {
+    goToHighscores()
+});

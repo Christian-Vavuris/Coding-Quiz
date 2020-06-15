@@ -35,3 +35,5 @@ var answers = [
     "align-items",
     "<script>",
 ]
+
+var playerScore = []
